@@ -1,4 +1,6 @@
-var socket = io.connect('smarthome-az.appspot.com:8080', {'forceNew':true})
+var host = window.location.host;
+
+var socket = io.connect(host, {'forceNew':true});
 
 socket.on('messages', function(data){
 	console.log(data);

@@ -5,7 +5,7 @@ var io = require('socket.io')(server);
 
 app.use(express.static('client'));
 
-app.get('/', function(req, res) {
+app.get('/hi', function(req, res) {
   res.status(200).send('Hello motherfuckers');
 });
 
@@ -16,7 +16,6 @@ var messages = [{
 }]
 
 io.on('connection', function(socket){
-
 	console.log('Nuevo cliente conectado ' + socket.handshake.address);
 	socket.emit('messages', messages);
 
@@ -26,10 +25,10 @@ io.on('connection', function(socket){
 	})
 });
 
+var PORT = process.argv[2] || 80;
 
-
-server.listen(8080, function() {
-	console.log('Server runing on http://localhost:8080');
+server.listen(PORT, function() {
+	console.log('Server runing on port: '+PORT);
 });
 
 

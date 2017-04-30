@@ -16,17 +16,17 @@
 // [START app]
 'use strict';
 
-const express = require('express');
-const app = express();
+var express = require('express');
+var app = express();
 
-app.get('/', (req, res) => {
+app.get('/hi', function(req, res) {
   res.status(200).send('HELLO MOTHERFUCKERS!');
 });
 
 // Start the server
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log('App listening on port ${PORT}');
+var PORT = process.env.PORT || 80;
+app.listen(PORT, function() {
+  console.log('App listening on port ' + PORT);
   console.log('Press Ctrl+C to quit.');
 });
 // [END app]
